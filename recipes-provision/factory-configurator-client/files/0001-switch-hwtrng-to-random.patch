@@ -1,0 +1,27 @@
+From 5e1f732f66760cfff2488fd58390f2fcc6177a5c Mon Sep 17 00:00:00 2001
+From: Ben Cooke <ben.cooke@arm.com>
+Date: Tue, 2 Oct 2018 10:47:05 -0500
+Subject: [PATCH 1/1] switch hwtrng to random
+
+---
+ .../Board_Specific/TARGET_Yocto_Generic/pal_plat_Yocto_Generic.c      | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/mbed-client-pal/Source/Port/Reference-Impl/OS_Specific/Linux/Board_Specific/TARGET_Yocto_Generic/pal_plat_Yocto_Generic.c b/mbed-client-pal/Source/Port/Reference-Impl/OS_Specific/Linux/Board_Specific/TARGET_Yocto_Generic/pal_plat_Yocto_Generic.c
+index 128ed5a..abb7fc7 100644
+--- a/mbed-client-pal/Source/Port/Reference-Impl/OS_Specific/Linux/Board_Specific/TARGET_Yocto_Generic/pal_plat_Yocto_Generic.c
++++ b/mbed-client-pal/Source/Port/Reference-Impl/OS_Specific/Linux/Board_Specific/TARGET_Yocto_Generic/pal_plat_Yocto_Generic.c
+@@ -28,7 +28,9 @@ palStatus_t pal_plat_getRandomBufferFromHW(uint8_t *randomBuf, size_t bufSizeByt
+     palStatus_t status = PAL_SUCCESS;
+     FILE *fp;
+     size_t actualRead = 0;
+-    char dev_random[] = "/dev/hwrng";
++    //char dev_random[] = "/dev/hwrng";
++    char dev_random[] = "/dev/random";
++
+ 
+     // Random generation can be really slow, entropy collection on a freshly booted device
+     // can take up to 10-20 minutes! Installing rng-tools can speed things up.
+-- 
+1.9.1
+
