@@ -1,0 +1,24 @@
+From 60c46ac5c4ba2578b7f88c359af5207cac6f43a5 Mon Sep 17 00:00:00 2001
+From: Devaraj Ranganna <devaraj.ranganna@arm.com>
+Date: Tue, 9 Apr 2019 11:24:47 +0100
+Subject: [PATCH 1/1] Update primary and secondary mount points to /config/user
+
+Signed-off-by: Devaraj Ranganna <devaraj.ranganna@arm.com>
+---
+ linux-config.cmake | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/linux-config.cmake b/linux-config.cmake
+index 24f0ef6..e8f4097 100644
+--- a/linux-config.cmake
++++ b/linux-config.cmake
+@@ -11,4 +11,6 @@ add_definitions(
+ 	-DPAL_USER_DEFINED_CONFIGURATION="\\"source/pal_config_linux.h"\\"
+ 	-DMBED_CLIENT_USER_CONFIG_FILE="\\"source/mbed_cloud_client_user_config.h"\\"
+ 	-DMBED_CLOUD_CLIENT_USER_CONFIG_FILE="\\"source/mbed_cloud_client_user_config.h"\\"
++	-DPAL_FS_MOUNT_POINT_PRIMARY="\\"/config/user"\\"
++	-DPAL_FS_MOUNT_POINT_SECONDARY="\\"/config/user"\\"
+ )
+-- 
+2.18.0
+
