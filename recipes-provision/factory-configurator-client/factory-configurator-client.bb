@@ -1,9 +1,11 @@
 DESCRIPTION="factory-configurator-client-example"
 
+TOOLCHAIN = "POKY-GLIBC"
+
 LICENSE = "Apache-2.0"
 LICENSE_MD5SUM = "4336ad26bb93846e47581adc44c4514d"
 
-SOURCE_REPOSITORY = "git://git@github.com:ARMmbed/factory-configurator-client-example.git"
+SOURCE_REPOSITORY = "git://git@github.com/ARMmbed/factory-configurator-client-example.git"
 SOURCE_BRANCH = "master"
 SRCREV = "3.0.0"
 APP_NAME = "factory-configurator-client"
@@ -14,7 +16,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/${APP_NAME}/pal-platform/LICENSE;md5=$
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = "${SOURCE_REPOSITORY};branch=${SOURCE_BRANCH};protocol=ssh;name=${APP_NAME};destsuffix=git/${APP_NAME} \
-          file://0002-Update-primary-and-secondary-mount-points-to-config-.patch"
+          file://0002-Update-primary-and-secondary-mount-points-to-config-.patch;patchdir=../git/factory-configurator-client"
 
 RDEPENDS_${PN} = " libstdc++ libgcc"
 
@@ -39,7 +41,7 @@ do_setup_pal_env() {
     cd "${WORKDIR}/git/${APP_NAME}"
     # Clean the old build directory
     rm -rf "__${TARGET}"
-    mbed deploy --protocol ssh
+    /usr/local/bin/mbed deploy --protocol ssh
     SSH_AUTH_SOCK=${SSH_AUTH_SOCK} python ./pal-platform/pal-platform.py -v deploy --target="${TARGET}" generate
     cd ${CUR_DIR}
 }
