@@ -3,7 +3,7 @@ DESCRIPTION="factory-configurator-client-example"
 LICENSE = "Apache-2.0"
 LICENSE_MD5SUM = "4336ad26bb93846e47581adc44c4514d"
 
-SOURCE_REPOSITORY = "git@github.com:ARMmbed/factory-configurator-client-example.git"
+SOURCE_REPOSITORY = "git://git@github.com:ARMmbed/factory-configurator-client-example.git"
 SOURCE_BRANCH = "master"
 SRCREV = "3.0.0"
 APP_NAME = "factory-configurator-client"
