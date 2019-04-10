@@ -3,7 +3,7 @@ DESCRIPTION="factory-configurator-client-example"
 TOOLCHAIN = "POKY-GLIBC"
 
 LICENSE = "Apache-2.0"
-LICENSE_MD5SUM = "4336ad26bb93846e47581adc44c4514d"
+LICENSE_MD5SUM = "e3fc50a88d0a364313df4b21ef20c29e"
 
 SOURCE_REPOSITORY = "git://git@github.com/ARMmbed/factory-configurator-client-example.git"
 SOURCE_BRANCH = "master"
